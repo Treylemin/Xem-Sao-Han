@@ -510,19 +510,19 @@ function generatePDF(listMaSo) {
             // All requests are completed
             printButton.attr('disabled', false);
             spinner.addClass('d-none');
-            doc.output('dataurlnewwindow');
+            //doc.output('dataurlnewwindow');
 
 
-            // doc.autoPrint(); // Chuẩn bị cho lệnh in
-            // var printDialog = true; // Tùy chọn: true để mở hộp thoại in ngay lập tức
+            doc.autoPrint(); // Chuẩn bị cho lệnh in
+            var printDialog = true; // Tùy chọn: true để mở hộp thoại in ngay lập tức
 
-            // if (printDialog) {
-            //     // Mở hộp thoại in
-            //     doc.output('dataurlnewwindow'); // Mở cửa sổ mới chứa dữ liệu in
-            // } else {
-            //     // In trực tiếp không mở hộp thoại in
-            //     doc.output('dataurl'); // Trả về dữ liệu in
-            // }
+            if (printDialog) {
+                // Mở hộp thoại in
+                doc.output('dataurlnewwindow'); // Mở cửa sổ mới chứa dữ liệu in
+            } else {
+                // In trực tiếp không mở hộp thoại in
+                doc.output('dataurl'); // Trả về dữ liệu in
+            }
 
             /*
             //In nhanh trực tiếp
