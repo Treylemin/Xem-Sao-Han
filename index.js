@@ -510,19 +510,27 @@ function generatePDF(listMaSo) {
             // All requests are completed
             printButton.attr('disabled', false);
             spinner.addClass('d-none');
-            //doc.output('dataurlnewwindow');
+
+            // Tạo blob từ dữ liệu PDF
+            var pdfBlob = doc.output('blob');
+
+            // Tạo một URL tạm thời cho blob
+            var blobURL = URL.createObjectURL(pdfBlob);
+
+            // Tạo cửa sổ mới để mở file PDF
+            var newWindow = window.open(blobURL, '_blank');
 
 
-            doc.autoPrint(); // Chuẩn bị cho lệnh in
-            var printDialog = true; // Tùy chọn: true để mở hộp thoại in ngay lập tức
+            // doc.autoPrint(); // Chuẩn bị cho lệnh in
+            // var printDialog = true; // Tùy chọn: true để mở hộp thoại in ngay lập tức
 
-            if (printDialog) {
-                // Mở hộp thoại in
-                doc.output('dataurlnewwindow'); // Mở cửa sổ mới chứa dữ liệu in
-            } else {
-                // In trực tiếp không mở hộp thoại in
-                doc.output('dataurl'); // Trả về dữ liệu in
-            }
+            // if (printDialog) {
+            //     // Mở hộp thoại in
+            //     doc.output('dataurlnewwindow'); // Mở cửa sổ mới chứa dữ liệu in
+            // } else {
+            //     // In trực tiếp không mở hộp thoại in
+            //     doc.output('dataurl'); // Trả về dữ liệu in
+            // }
 
             /*
             //In nhanh trực tiếp
