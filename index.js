@@ -513,16 +513,25 @@ function generatePDF(listMaSo) {
             //doc.output('dataurlnewwindow');
 
 
-            doc.autoPrint(); // Chuẩn bị cho lệnh in
-            var printDialog = true; // Tùy chọn: true để mở hộp thoại in ngay lập tức
+            // doc.autoPrint(); // Chuẩn bị cho lệnh in
+            // var printDialog = true; // Tùy chọn: true để mở hộp thoại in ngay lập tức
 
-            if (printDialog) {
-                // Mở hộp thoại in
-                doc.output('dataurlnewwindow'); // Mở cửa sổ mới chứa dữ liệu in
-            } else {
-                // In trực tiếp không mở hộp thoại in
-                doc.output('dataurl'); // Trả về dữ liệu in
-            }
+            // if (printDialog) {
+            //     // Mở hộp thoại in
+            //     doc.output('dataurlnewwindow'); // Mở cửa sổ mới chứa dữ liệu in
+            // } else {
+            //     // In trực tiếp không mở hộp thoại in
+            //     doc.output('dataurl'); // Trả về dữ liệu in
+            // }
+
+            doc.autoPrint();
+
+            // Tạo dữ liệu URL của tập tin PDF
+            var pdfDataUri = doc.output('datauristring');
+
+            // Mở cửa sổ mới chứa dữ liệu in
+            var newWindow = window.open();
+            newWindow.document.write('<iframe src="' + pdfDataUri + '" style="width:100%; height:100%;" frameborder="0"></iframe>');
 
             /*
             //In nhanh trực tiếp
