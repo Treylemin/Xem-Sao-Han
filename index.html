@@ -95,41 +95,54 @@
           <input type="hidden" id="StartRow" name="StartRow" value="0">
           <input type="hidden" id="RowCount" name="RowCount" value="0">
 
-          <table class="table table-bordered">
-            <thead class="table-success">
-              <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Họ và tên</th>
-                <th scope="col">Giới tính</th>
-                <th scope="col">Năm sinh</th>
-                <th scope="col">Ngươi sanh</th>
-                <th scope="col" class="NoPrint">
-                  <button type="button" class="btn btn-sm btn-success" onclick="BtnAdd()">+</button>
-                </th>
-
-              </tr>
-            </thead>
-            <tbody id="TBody">
-              <tr id="TRow" class="d-none">
-                <th scope="row">1</th>
-                <td><input type="text" class="form-control" name="ho_va_ten" placeholder="Họ và tên"></td>
-                <!-- qty -->
-                <td>
-                  <select class="form-select" name="gioi_tinh">
-                    <option value="Nam">Nam</option>
-                    <option value="Nữ">Nữ</option>
-                  </select>
-                </td>
-                <!-- rate -->
-                <td><input type="text" class="form-control" name="nam_sinh" placeholder="Năm sinh hoặc Tuổi"
-                    onchange="updateNguoiSanh(this);"></td>
-                <!-- amt -->
-                <td><input type="text" class="form-control" name="nguoi_sanh" readonly></td>
-                <td class="NoPrint"><button type="button" class="btn btn-sm btn-danger"
-                    onclick="BtnDel(this)">X</button></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead class="table-success">
+                <tr>
+                  <th scope="col" style="width: 1%;">#</th>
+                  <th scope="col">Thông tin</th>
+                  <th scope="col" style="width: 1%;">
+                    <button type="button" class="btn btn-sm btn-success" onclick="BtnAdd()">+</button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="TBody">
+                <tr id="TRow" class="d-none">
+                  <th scope="row">1</th>
+                  <td>
+                    <div class="row">
+                      <div class="col-xl-5 col-lg-5 col-md-5 col-12">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" name="ho_va_ten" placeholder="Họ và tên">
+                        </div>
+                      </div>
+                      <div class="col-xl-2 col-lg-2 col-md-2 col-6">
+                        <div class="input-group mb-3">
+                          <select class="form-select" name="gioi_tinh">
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xl-2 col-lg-2 col-md-2 col-6">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" name="nam_sinh" placeholder="Tuổi"
+                            onchange="updateNguoiSanh(this);">
+                        </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-12">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" name="nguoi_sanh" placeholder="Ngươi sanh" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="NoPrint"><button type="button" class="btn btn-sm btn-danger"
+                      onclick="BtnDel(this)">X</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <div class="card-footer text-center">
             <button type="submit" class="btn btn-primary" id="submitButton">
